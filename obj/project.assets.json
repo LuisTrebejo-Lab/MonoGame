@@ -315,9 +315,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/luis/trabajo/ETN32/pruebaMonogame/esqueletoMonoGame/esqueletoMonoGame.csproj",
-      "projectName": "esqueletoMonoGame",
-      "projectPath": "/home/luis/trabajo/ETN32/pruebaMonogame/esqueletoMonoGame/esqueletoMonoGame.csproj",
+      "projectUniqueName": "/home/luis/trabajo/ETN32/pruebaMonogame/esqueletoMonoGame/probandoEstructura.csproj",
+      "projectName": "probandoEstructura",
+      "projectPath": "/home/luis/trabajo/ETN32/pruebaMonogame/esqueletoMonoGame/probandoEstructura.csproj",
       "packagesPath": "/home/luis/.nuget/packages/",
       "outputPath": "/home/luis/trabajo/ETN32/pruebaMonogame/esqueletoMonoGame/obj/",
       "projectStyle": "PackageReference",

@@ -1,2 +1,2 @@
-﻿using var game = new esqueletoMonoGame.Game1();
+﻿using var game = new probandoEstructura.Game1();
 game.Run();
