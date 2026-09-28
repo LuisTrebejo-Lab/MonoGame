@@ -11,7 +11,9 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     
     //textSonic es una variable que va ser el sprite de la imagen
-    Texture2D texSonic;
+    //Texture2D texSonic;
+
+    Texture2D texSonic, texSonicCorriendo, texSonicActual;
 
     //recSonic va a ser un rectangulo que va a contener a texSonic, pensalo como una hitbox
     Rectangle recSonic;
@@ -55,8 +57,11 @@ public class Game1 : Game
         //asignamos a texSonic la imagen que cargamos en content
         texSonic = Content.Load<Texture2D>("sonic");
 
+        texSonicCorriendo = Content.Load<Texture2D>("sonicCorriendo");
+
+        texSonicActual = texSonic;
         //definimos la posicion en X e Y inicial, definimos la anchura y altura del rectangulo
-        recSonic = new Rectangle(((ancho_pantalla/2)-75), ((alto_pantalla/2)-75), 150, 150);
+        recSonic = new Rectangle(100, 100, 150, 150);
         // TODO: use this.Content to load your game content here
     }
 
@@ -75,28 +80,43 @@ public class Game1 : Game
             this.Exit();
         }
 
+        bool estaMoviendose = false;
+
         //si presionas la tecla left se mueve a la izquierda sobre el eje X
         if(teclaActual.IsKeyDown(Keys.Left))
         {
-            recSonic.X -= (int)movimiento.X;
-        }
 
+            recSonic.X -= (int)movimiento.X;
+            estaMoviendose = true;
+        }
         //si presionas la tecla rigt se mueve a la derecha sobre el eje X
         if(teclaActual.IsKeyDown(Keys.Right))
         {
             recSonic.X += (int)movimiento.X;
+            estaMoviendose = true;
         }
 
         //si presionas la tecla Up se mueve para arriba sobre el eje Y
         if(teclaActual.IsKeyDown(Keys.Up))
         {
             recSonic.Y -= (int)movimiento.Y;
+            estaMoviendose = true;
         }
 
         //si presionas la tecla Down se mueve para abajo sobre el eje Y
         if(teclaActual.IsKeyDown(Keys.Down))
         {
             recSonic.Y += (int)movimiento.Y;
+            estaMoviendose = true;
+        }
+
+        if (estaMoviendose)
+        {
+            texSonicActual = texSonicCorriendo;
+        }
+        else
+        {
+            texSonicActual = texSonic;
         }
 
         base.Update(gameTime);
@@ -106,7 +126,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
-        _spriteBatch.Draw(texSonic, recSonic, Color.White);
+        _spriteBatch.Draw(texSonicActual, recSonic, Color.White);
         _spriteBatch.End();
         // TODO: Add your drawing code here
 
