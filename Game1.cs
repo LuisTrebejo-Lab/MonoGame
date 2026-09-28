@@ -110,12 +110,15 @@ public class Game1 : Game
             estaMoviendose = true;
         }
 
+        //verificamos si actualmente se esta moviendo
         if (estaMoviendose)
         {
+            //si se mueve la textura2d texSonicActual cambia al de texSonicCorriendo
             texSonicActual = texSonicCorriendo;
         }
         else
         {
+            //si no se mueve vuelve a la imagen original
             texSonicActual = texSonic;
         }
 
@@ -126,6 +129,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
+        //texSonicActual se alterna entre texSonic y texSonicCorriendo
         _spriteBatch.Draw(texSonicActual, recSonic, Color.White);
         _spriteBatch.End();
         // TODO: Add your drawing code here
